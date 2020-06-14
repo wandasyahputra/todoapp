@@ -1,9 +1,11 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Stack, Text, Link, FontWeights } from 'office-ui-fabric-react';
+import { ButtonSplitExample } from './component/button';
 
 const boldStyle = { root: { fontWeight: FontWeights.semibold } };
 
 export const App: React.FunctionComponent = () => {
+  const [lala] = useState('wanda')
   return (
     <Stack
       horizontalAlign="center"
@@ -19,6 +21,8 @@ export const App: React.FunctionComponent = () => {
       }}
       gap={15}
     >
+      {lala}
+      <ButtonSplitExample />
       <img
         src="https://raw.githubusercontent.com/Microsoft/just/master/packages/just-stack-uifabric/template/src/components/fabric.png"
         alt="logo"
@@ -47,3 +51,5 @@ export const App: React.FunctionComponent = () => {
     </Stack>
   );
 };
+
+export default App

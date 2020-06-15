@@ -1,28 +1,35 @@
 import React, {useState} from 'react';
 import { Stack, Text, Link, FontWeights } from 'office-ui-fabric-react';
-import { ButtonSplitExample } from './component/button';
+import { ButtonDefaultExample } from './component/button';
+import { DatePickerWeekNumbersExample } from './component/calendar';
+import { PivotIconCountExample } from './component/pivotMenu';
+import { DetailsListDocumentsExample } from './component/detailList';
 
 const boldStyle = { root: { fontWeight: FontWeights.semibold } };
 
 export const App: React.FunctionComponent = () => {
   const [lala] = useState('wanda')
+  
   return (
     <Stack
-      horizontalAlign="center"
-      verticalAlign="center"
-      verticalFill
-      styles={{
-        root: {
-          width: '960px',
-          margin: '0 auto',
-          textAlign: 'center',
-          color: '#605e5c'
-        }
-      }}
-      gap={15}
+      // horizontalAlign="center"
+      // verticalAlign="center"
+      // verticalFill
+      // styles={{
+      //   root: {
+      //     width: '960px',
+      //     margin: '0 auto',
+      //     textAlign: 'center',
+      //     color: '#605e5c'
+      //   }
+      // }}
+      // gap={15}
     >
       {lala}
-      <ButtonSplitExample />
+      <PivotIconCountExample />
+      <ButtonDefaultExample />
+      <DatePickerWeekNumbersExample />
+      <DetailsListDocumentsExample />
       <img
         src="https://raw.githubusercontent.com/Microsoft/just/master/packages/just-stack-uifabric/template/src/components/fabric.png"
         alt="logo"

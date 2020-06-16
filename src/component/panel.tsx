@@ -15,10 +15,15 @@ type PanelProps = {
   detail?: any,
   open: boolean,
   close: any,
+  titleChange: any,
+  dueDateChange: any,
+  deleteHandler: any,
+  completeChange: any,
+  dateChange: any,
 }
 
 
-export const PanelFabrick: React.FunctionComponent<PanelProps> = ({detail, open, close}) => {
+export const PanelFabrick: React.FunctionComponent<PanelProps> = ({detail, dateChange, open, close, titleChange, dueDateChange, deleteHandler, completeChange}) => {
   const stackItem: IStackItemStyles = {
     root: {
       alignItems: 'center'
@@ -48,10 +53,10 @@ export const PanelFabrick: React.FunctionComponent<PanelProps> = ({detail, open,
       >
         <Stack horizontal styles={stackItem}>
           <Stack.Item styles={stackItem}>
-            <Checkbox label="" styles={checkboxStyle} defaultChecked={detail.complete} />
+            <Checkbox onChange={completeChange(detail)} label="" styles={checkboxStyle} defaultChecked={detail.complete} />
           </Stack.Item>
           <Stack.Item grow>
-            <TextField styles={detail.complete ? inputStyleComplete : {}} borderless defaultValue={detail.title}/>
+            <TextField onBlur={titleChange(detail)} styles={detail.complete ? inputStyleComplete : {}} borderless defaultValue={detail.title}/>
           </Stack.Item>
           <Stack.Item>
             <ActionButton iconProps={star} />
@@ -60,9 +65,10 @@ export const PanelFabrick: React.FunctionComponent<PanelProps> = ({detail, open,
         <DatePickerWeekNumbersExample
           placeholder="Add due date"
           defaultValue={detail.duedate}
+          selectDate={dateChange(detail)}
         />
-        <ButtonDefaultExample text="Add To My Day" icon="Sunny" />
-        <ButtonDefaultExample text="Delete Task" icon="Delete" type="danger" />
+        <ButtonDefaultExample text="Add To My Day" icon="Sunny" onClick={()=> null} />
+        <ButtonDefaultExample onClick={deleteHandler(detail)} text="Delete Task" icon="Delete" type="danger" />
       </Panel>
   );
 };

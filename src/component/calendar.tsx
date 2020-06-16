@@ -41,12 +41,13 @@ const controlClass = mergeStyleSets({
 
 type DatePickerProps = {
   placeholder?: string,
-  defaultValue?: string
+  defaultValue?: string,
+  selectDate: any
 }
 
-export const DatePickerWeekNumbersExample: React.FC<DatePickerProps> = ({placeholder, defaultValue}) => {
+export const DatePickerWeekNumbersExample: React.FC<DatePickerProps> = ({placeholder, defaultValue, selectDate}) => {
   const duedate = defaultValue !== undefined ? defaultValue : ''
-  const date = new Date(duedate)
+  const date = !isNaN(new Date(duedate).getTime())  ? new Date(duedate) : undefined
   return (
     <div>
       <DatePicker
@@ -59,7 +60,7 @@ export const DatePickerWeekNumbersExample: React.FC<DatePickerProps> = ({placeho
         showMonthPickerAsOverlay={true}
         placeholder={placeholder !== '' ? placeholder : `Select a date...`}
         ariaLabel="Select a date"
-        onSelectDate={(e)=>console.log(e)}
+        onSelectDate={selectDate}
       />
     </div>
   );

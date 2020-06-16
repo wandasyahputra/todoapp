@@ -6,6 +6,8 @@ import { ListTask } from '../widgets/listTask';
 const stackItemStyles: IStackItemStyles = {
   root: {
     display: 'flex',
+    height: '100vh',
+    overflowY: 'scroll'
   },
 };
 const nonShrinkingStackItemStyles: IStackItemStyles = {

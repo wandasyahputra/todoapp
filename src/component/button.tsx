@@ -9,6 +9,7 @@ export interface IButtonExampleProps {
   text?: string;
   icon?: string;
   type?: string;
+  onClick: any;
 }
 
 
@@ -35,10 +36,6 @@ export const ButtonDefaultExample: React.FunctionComponent<IButtonExampleProps> 
   }
 
   return (
-    <DefaultButton text={text} onClick={_alertClicked} styles={blockButton} allowDisabledFocus iconProps={addIcon} />
+    <DefaultButton text={text} onClick={props.onClick} styles={blockButton} allowDisabledFocus iconProps={addIcon} />
   );
 };
-
-function _alertClicked(): void {
-  alert('Clicked');
-}

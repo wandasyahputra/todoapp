@@ -6,6 +6,7 @@ import {
   ICheckboxStyles,
   ActionButton,
   IIconProps,
+  ITextStyles,
   Text,
   Separator
 } from 'office-ui-fabric-react';
@@ -13,10 +14,16 @@ import {
 type TaskProps = {
   detail?: any,
   openDetail: any,
+  completeChange: any
 }
 
 
-export const Task: React.FunctionComponent<TaskProps> = ({detail, openDetail}) => {
+export const Task: React.FunctionComponent<TaskProps> = ({detail, openDetail, completeChange}) => {
+  const textCompleteStyle: ITextStyles = {
+    root: {
+      textDecoration: 'line-through'
+    }
+  }
   const stackItemPadding: IStackItemStyles = {
     root: {
       padding: '0 10px',
@@ -34,11 +41,11 @@ export const Task: React.FunctionComponent<TaskProps> = ({detail, openDetail}) =
     <Stack.Item>
       <Stack horizontal styles={stackItemPadding}>
         <Stack.Item styles={stackItemPadding}>
-          <Checkbox label="" styles={checkboxStyle} defaultChecked={detail.complete} />
+          <Checkbox label="" onChange={completeChange(detail)} styles={checkboxStyle} defaultChecked={detail.complete} />
         </Stack.Item>
         <Stack.Item grow >
-          <Text onClick={openDetail(detail)} block>{detail.title}</Text>
-          <Text block>{detail.duedate}</Text>
+          <Text styles={detail.complete ? textCompleteStyle : {}} onClick={openDetail(detail)} block>{detail.title}</Text>
+          <Text onClick={openDetail(detail)} block>{detail.duedate}</Text>
         </Stack.Item>
         <Stack.Item>
           <ActionButton iconProps={star} />

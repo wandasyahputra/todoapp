@@ -205,7 +205,7 @@ export class DetailsListDocumentsExample extends React.Component<{}, IDetailsLis
             offText="Normal"
             styles={controlStyles}
           />
-          <TextField label="Filter by name:" onChange={this.onChangeText} styles={controlStyles} />
+          <TextField label="Filter by name:" onChange={createconsole} styles={controlStyles} />
           <Announced message={`Number of items after filter applied: ${items.length}.`} />
         </div>
         <div className={classNames.selectionDetails}>{selectionDetails}</div>
@@ -315,6 +315,9 @@ export class DetailsListDocumentsExample extends React.Component<{}, IDetailsLis
   };
 }
 
+function createconsole(e: any) {
+  console.log(e.target.value)
+}
 function _copyAndSort<T>(items: T[], columnKey: string, isSortedDescending?: boolean): T[] {
   const key = columnKey as keyof T;
   return items.slice(0).sort((a: T, b: T) => ((isSortedDescending ? a[key] < b[key] : a[key] > b[key]) ? 1 : -1));

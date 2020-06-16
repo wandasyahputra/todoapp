@@ -1,10 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { App } from './App';
+// import { App } from './pages/App';
+
 import { FluentCustomizations } from '@uifabric/fluent-theme';
 import { Customizer, mergeStyles } from 'office-ui-fabric-react';
 import * as serviceWorker from './serviceWorker';
 import { initializeIcons } from '@uifabric/icons';
+import './assets/styles/style.scss'
+import 'office-ui-fabric-react/dist/css/fabric.min.css'
+import Routes from './routes';
 
 initializeIcons(undefined, { disableWarnings: true });
 
@@ -21,7 +25,7 @@ mergeStyles({
 
 ReactDOM.render(
   <Customizer {...FluentCustomizations}>
-    <App />
+    <Routes />
   </Customizer>,
   document.getElementById('root')
 );

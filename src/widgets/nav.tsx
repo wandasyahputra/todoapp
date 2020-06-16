@@ -5,23 +5,22 @@ const navLinkGroups: INavLinkGroup[] = [
   {
     links: [
       {
-        name: 'My Day',
+        name: 'All Task',
         url: '/',
+        key: 'key5',
+        icon: 'Home',
+      },
+      {
+        name: 'My Day',
+        url: '/myday',
         key: 'key1',
         icon: 'Sunny',
-        // onClick: handleNavClick
       },
       {
         name: 'Important',
         url: '/important',
         key: 'key4',
-        icon: 'FavoriteStarFill',
-      },
-      {
-        name: 'All Task',
-        url: '/all',
-        key: 'key5',
-        icon: 'EntitlementPolicy',
+        icon: 'FavoriteStar',
       },
     ]
   },

@@ -34,22 +34,30 @@ const DayPickerStrings: IDatePickerStrings = {
 
 const controlClass = mergeStyleSets({
   control: {
-    margin: '0 0 15px 0',
+    margin: '15px 0',
     maxWidth: '300px',
-  },
+  }
 });
 
-export const DatePickerWeekNumbersExample: React.FC = () => {
+type DatePickerProps = {
+  placeholder?: string,
+  defaultValue?: string
+}
+
+export const DatePickerWeekNumbersExample: React.FC<DatePickerProps> = ({placeholder, defaultValue}) => {
+  const duedate = defaultValue !== undefined ? defaultValue : ''
+  const date = new Date(duedate)
   return (
     <div>
       <DatePicker
         className={controlClass.control}
         firstDayOfWeek={DayOfWeek.Sunday}
         strings={DayPickerStrings}
-        showWeekNumbers={true}
         firstWeekOfYear={1}
+        borderless
+        value={date}
         showMonthPickerAsOverlay={true}
-        placeholder="Select a date..."
+        placeholder={placeholder !== '' ? placeholder : `Select a date...`}
         ariaLabel="Select a date"
         onSelectDate={(e)=>console.log(e)}
       />

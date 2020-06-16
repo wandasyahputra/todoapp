@@ -1,23 +1,41 @@
 import * as React from 'react';
-import { DefaultButton, PrimaryButton, Stack, IStackTokens } from 'office-ui-fabric-react';
+import { IButtonStyles, DefaultButton, IIconProps, DefaultPalette  } from 'office-ui-fabric-react';
+import { SharedColors } from '@uifabric/fluent-theme'
 
 export interface IButtonExampleProps {
   // These are set based on the toggles shown above the examples (not needed in real code)
   disabled?: boolean;
   checked?: boolean;
+  text?: string;
+  icon?: string;
+  type?: string;
 }
 
-// Example formatting
-const stackTokens: IStackTokens = { childrenGap: 40 };
 
 export const ButtonDefaultExample: React.FunctionComponent<IButtonExampleProps> = props => {
-  const { disabled, checked } = props;
+  const { text, icon, type } = props;
+  const addIcon: IIconProps = { iconName: icon };
+  const blockButton: IButtonStyles = {
+    root: {
+      width: '100%',
+      padding: 20,
+      margin: '10px 0',
+      backgroundColor: type === 'danger' ? SharedColors.red10 : DefaultPalette.neutralLighter ,
+      borderColor: type === 'danger' ? SharedColors.red10 : DefaultPalette.neutralLighter ,
+      color: type === 'danger' ? DefaultPalette.white : DefaultPalette.black
+    },
+    rootHovered: {
+      backgroundColor: type === 'danger' ? SharedColors.red20 : DefaultPalette.neutralLight ,
+      borderColor: type === 'danger' ? SharedColors.red20 : DefaultPalette.neutralLight ,
+      color: type === 'danger' ? DefaultPalette.white : DefaultPalette.black
+    },
+    flexContainer: {
+      flexDirection: 'row-reverse'
+    }
+  }
 
   return (
-    <Stack horizontal tokens={stackTokens}>
-      <DefaultButton text="Standard" onClick={_alertClicked} allowDisabledFocus disabled={disabled} checked={checked} />
-      <PrimaryButton text="Primary" onClick={_alertClicked} allowDisabledFocus disabled={disabled} checked={checked} />
-    </Stack>
+    <DefaultButton text={text} onClick={_alertClicked} styles={blockButton} allowDisabledFocus iconProps={addIcon} />
   );
 };
 

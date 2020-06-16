@@ -1,56 +1,81 @@
-import React, {useState} from 'react';
-import { DefaultPalette, Stack, IStackItemStyles , Link, FontWeights } from 'office-ui-fabric-react';
+import React from 'react';
+import { DefaultPalette, Checkbox, Stack, IStackItemStyles, ICheckboxStyles, Text, ActionButton, IIconProps } from 'office-ui-fabric-react';
 import { Separator } from 'office-ui-fabric-react/lib/components/Separator';
-import { ButtonDefaultExample } from '../component/button';
-import { DatePickerWeekNumbersExample } from '../component/calendar';
-import { PivotIconCountExample } from '../component/pivotMenu';
-import { DetailsListDocumentsExample } from '../component/detailList';
 import { NavFabricDemoAppExample } from '../component/nav';
-
-const boldStyle = { root: { fontWeight: FontWeights.semibold } };
 
 const stackItemStyles: IStackItemStyles = {
   root: {
-    // alignItems: 'center',
-    // background: DefaultPalette.themePrimary,
-    // color: DefaultPalette.white,
     display: 'flex',
-    // height: 50,
-    // justifyContent: 'center',
-    // overflow: 'hidden',
   },
 };
 const nonShrinkingStackItemStyles: IStackItemStyles = {
   root: {
-    // alignItems: 'center',
-    // background: DefaultPalette.themePrimary,
-    // color: DefaultPalette.white,
+    background: DefaultPalette.neutralLighter,
     display: 'flex',
-    // height: 50,
-    // justifyContent: 'center',
-    // overflow: 'hidden',
-    // width: 500,
   },
 };
+const stackItemPadding: IStackItemStyles = {
+  root: {
+    padding: '0 10px',
+    alignItems: 'center'
+  },
+};
+const checkboxStyle: ICheckboxStyles = {
+  checkbox: {
+    borderRadius: '50%',
+  },
+};
+const star: IIconProps = { iconName: 'FavoriteStarFill' };
+
 export const App: React.FunctionComponent = () => {
-  const [lala] = useState('wanda')
-  
   return (
     <Stack
-    horizontal
+      horizontal
     >
       <Stack.Item disableShrink styles={nonShrinkingStackItemStyles}>
         <NavFabricDemoAppExample />
       </Stack.Item>
-      <Stack.Item grow styles={stackItemStyles}>
-        <div>
-          <div>
-            <p>alalllalala</p>
-            <p>lalalalalalal</p>
-          </div>
+      <Stack grow styles={stackItemStyles}>
+        <Stack.Item>
+          <Stack horizontal styles={stackItemPadding}>
+            <Stack.Item styles={stackItemPadding}>
+              <Checkbox label="" styles={checkboxStyle} defaultChecked />
+            </Stack.Item>
+            <Stack.Item grow>
+              <Text block>alalllalala</Text>
+              <Text block>lalalalalalal</Text>
+            </Stack.Item>
+            <Stack.Item>
+              <ActionButton iconProps={star} />
+            </Stack.Item>
+          </Stack>
           <Separator />
-        </div>
-      </Stack.Item>
+        </Stack.Item>
+        <Stack.Item>
+          <Stack horizontal styles={stackItemPadding}>
+            <Stack.Item styles={stackItemPadding}>
+              <Checkbox label="" styles={checkboxStyle} defaultChecked />
+            </Stack.Item>
+            <Stack.Item>
+              <Text block>alalllalala</Text>
+              <Text block>lalalalalalal</Text>
+            </Stack.Item>
+          </Stack>
+          <Separator />
+        </Stack.Item>
+        <Stack.Item>
+          <Stack horizontal styles={stackItemPadding}>
+            <Stack.Item styles={stackItemPadding}>
+              <Checkbox label="" styles={checkboxStyle} defaultChecked />
+            </Stack.Item>
+            <Stack.Item>
+              <Text block>alalllalala</Text>
+              <Text block>lalalalalalal</Text>
+            </Stack.Item>
+          </Stack>
+          <Separator />
+        </Stack.Item>
+      </Stack>
     </Stack>
   );
 };

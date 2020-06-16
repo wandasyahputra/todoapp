@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Nav, INavStyles, INavLinkGroup } from 'office-ui-fabric-react/lib/components/Nav';
+import { Nav, INavLinkGroup } from 'office-ui-fabric-react/lib/components/Nav';
 
 const navLinkGroups: INavLinkGroup[] = [
   {
@@ -9,11 +9,11 @@ const navLinkGroups: INavLinkGroup[] = [
         url: '/',
         key: 'key1',
         icon: 'Sunny',
-        onClick: handleNavClick
+        // onClick: handleNavClick
       },
       {
         name: 'Important',
-        url: '/#important',
+        url: '/important',
         key: 'key4',
         icon: 'FavoriteStarFill',
       },
@@ -26,14 +26,9 @@ const navLinkGroups: INavLinkGroup[] = [
     ]
   },
 ];
-function handleNavClick(event: any):void {
-  event.preventDefault()
-  window.history.pushState({urlPath:event.currentTarget.pathname},"",event.currentTarget.pathname)
-}
-
 
 export const NavFabricDemoAppExample: React.FunctionComponent = () => {
   return (
-    <Nav onLinkClick={handleNavClick} className="custom-menu" groups={navLinkGroups} />
+    <Nav className="custom-menu" groups={navLinkGroups} />
   );
 };

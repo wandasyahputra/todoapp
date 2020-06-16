@@ -9,6 +9,9 @@ export const Routes: React.FunctionComponent = () => {
   return (
     <Router>
       <Switch>
+        <Route path="/all">
+          {null}
+        </Route>
         <Route path="/">
           <App />
         </Route>

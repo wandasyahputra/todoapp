@@ -6,7 +6,7 @@ import { FluentCustomizations } from '@uifabric/fluent-theme';
 import { Customizer, mergeStyles } from 'office-ui-fabric-react';
 import * as serviceWorker from './serviceWorker';
 import { initializeIcons } from '@uifabric/icons';
-import './assets/styles/style.scss'
+import './index.css'
 import 'office-ui-fabric-react/dist/css/fabric.min.css'
 import Routes from './routes';
 

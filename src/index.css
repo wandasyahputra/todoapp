@@ -24,3 +24,18 @@ code {
 .d-inline-flex {
   display: inline-flex;
 }
+.custom-menu {
+  height: calc(100vh - 48px);
+  width: 290px;
+}
+.custom-menu .ms-Icon {
+  margin: 0 14px;
+}
+.w-100 {
+  width: 100%;
+}
+@media (max-width: 480px) {
+  .custom-menu {
+    width: 50px;
+  }
+}

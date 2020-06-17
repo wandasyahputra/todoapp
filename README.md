@@ -1,8 +1,19 @@
-This is a Create React App based repo that comes with UI Fabric pre-installed!
+This is an To Do organisator application which can Google as authenticator, but all data always on localStorage. No data send to us or server (we doesn't have server too)
+
+Demo of this project can be found on [https://todofluent.herokuapp.com/](https://todofluent.herokuapp.com/)
+
+
+## Getting Started
+
+This app tested on node.js v13.12.0 npm v6.14.4
 
 ## Available Scripts
 
 In the project directory, you can run:
+
+### `npm install`
+
+You just need do this for the first time in forever.<br>
 
 ### `npm start`
 
@@ -27,32 +38,16 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
 ## Learn More
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
+You can learn more in the [Fluent UI documentation](https://developer.microsoft.com/en-us/fluentui#/).
+
 To learn React, check out the [React documentation](https://reactjs.org/).
 
-# Contributing
+# Authors
 
-This project welcomes contributions and suggestions.  Most contributions require you to agree to a
-Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us
-the rights to use your contribution. For details, visit https://cla.microsoft.com.
+This project only have 1 Author and 1 Contributor
 
-When you submit a pull request, a CLA-bot will automatically determine whether you need to provide
-a CLA and decorate the PR appropriately (e.g., label, comment). Simply follow the instructions
-provided by the bot. You will only need to do this once across all repos using our CLA.
-
-This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
-For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or
-contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
+* **Wanda Syahputra** - [wandasyahputra](https://github.com/wandasyahputra)

@@ -21,8 +21,11 @@ export const ListTask: React.FunctionComponent = () => {
   const [panelData, setPanelData] = useState(false)
   const [datas, setDatas] = useState([])
   const [newTaskValue, setNewTaskValue] = useState('')
+  const login = localStorage.getItem('login') || ''
+  
   useEffect(() => {
-    const taskData = localStorage.getItem('wanda')
+    const login = localStorage.getItem('login') || ''
+    const taskData = localStorage.getItem(login)
     setDatas(taskData !== null ? JSON.parse(taskData) : [])
   },[])
 
@@ -44,7 +47,7 @@ export const ListTask: React.FunctionComponent = () => {
       return null
     })
     setDatas(newData)
-    localStorage.setItem('wanda', JSON.stringify(newData))
+    localStorage.setItem(login, JSON.stringify(newData))
   }
     
   const completeChange = (data: any) => (e: any) => {
@@ -57,7 +60,7 @@ export const ListTask: React.FunctionComponent = () => {
       return null
     })
     setDatas(newData)
-    localStorage.setItem('wanda', JSON.stringify(newData))
+    localStorage.setItem(login, JSON.stringify(newData))
   }
   const dateChange = (data: any) => (e: any) => {
     let newData: any = []
@@ -69,7 +72,7 @@ export const ListTask: React.FunctionComponent = () => {
       return null
     })
     setDatas(newData)
-    localStorage.setItem('wanda', JSON.stringify(newData))
+    localStorage.setItem(login, JSON.stringify(newData))
   }
 
   const importantHandler = (data: any) => (e: any) => {
@@ -82,7 +85,7 @@ export const ListTask: React.FunctionComponent = () => {
       return null
     })
     setDatas(newData)
-    localStorage.setItem('wanda', JSON.stringify(newData))
+    localStorage.setItem(login, JSON.stringify(newData))
   }
     
   const mydayHandler = (data: any, status: boolean) => (e: any) => {
@@ -95,7 +98,7 @@ export const ListTask: React.FunctionComponent = () => {
       return null
     })
     setDatas(newData)
-    localStorage.setItem('wanda', JSON.stringify(newData))
+    localStorage.setItem(login, JSON.stringify(newData))
   }
 
   const deleteHandler = (data: any) => (e: any) => {
@@ -109,7 +112,7 @@ export const ListTask: React.FunctionComponent = () => {
     })
     setDatas(newData)
     setPanelData(false)
-    localStorage.setItem('wanda', JSON.stringify(newData))
+    localStorage.setItem(login, JSON.stringify(newData))
   }
 
   const newTask = (e: any) => {
@@ -131,9 +134,8 @@ export const ListTask: React.FunctionComponent = () => {
     })
     setNewTaskValue('')
     setDatas(newData)
-    localStorage.setItem('wanda', JSON.stringify(newData))
+    localStorage.setItem(login, JSON.stringify(newData))
     e.target.value = ''
-    console.log(e.target)
     return null
   }
 

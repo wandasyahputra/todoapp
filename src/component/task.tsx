@@ -52,9 +52,6 @@ export const Task: React.FunctionComponent<TaskProps> = ({detail, importantHandl
   const moment2 = detail.duedate === '' ? false : moment(new Date(detail.duedate));
   const myday =  moment1.isSame(momentToday, 'date')
   const today =  moment2 !== false ? moment2.diff(momentToday, 'days') : 'unset'
-  console.log(today)
-  console.log(moment())
-  console.log(moment2)
 
   return (
     <Stack.Item>

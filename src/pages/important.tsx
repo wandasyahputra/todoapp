@@ -2,11 +2,12 @@ import React from 'react';
 import { DefaultPalette, Stack, IStackItemStyles } from 'office-ui-fabric-react';
 import { NavFabricDemoAppExample } from '../widgets/nav';
 import ListImportant from '../widgets/listImportant';
+import { Header } from '../component/header';
 
 const stackItemStyles: IStackItemStyles = {
   root: {
     display: 'flex',
-    height: '100vh',
+    height: 'calc(100vh - 48px)',
     overflowY: 'scroll'
   },
 };
@@ -19,16 +20,19 @@ const nonShrinkingStackItemStyles: IStackItemStyles = {
 
 export const Important: React.FunctionComponent = () => {
   return (
-    <Stack
-      horizontal
-    >
-      <Stack.Item disableShrink styles={nonShrinkingStackItemStyles}>
-        <NavFabricDemoAppExample />
-      </Stack.Item>
-      <Stack grow styles={stackItemStyles}>
-        <ListImportant />      
+    <React.Fragment>
+      <Header />
+      <Stack
+        horizontal
+      >
+        <Stack.Item disableShrink styles={nonShrinkingStackItemStyles}>
+          <NavFabricDemoAppExample />
+        </Stack.Item>
+        <Stack grow styles={stackItemStyles}>
+          <ListImportant />      
+        </Stack>
       </Stack>
-    </Stack>
+    </React.Fragment>
   );
 };
 

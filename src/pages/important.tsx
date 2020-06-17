@@ -1,7 +1,7 @@
 import React from 'react';
 import { DefaultPalette, Stack, IStackItemStyles } from 'office-ui-fabric-react';
 import { NavFabricDemoAppExample } from '../widgets/nav';
-import { ListTask } from '../widgets/listTask';
+import ListImportant from '../widgets/listImportant';
 
 const stackItemStyles: IStackItemStyles = {
   root: {
@@ -17,7 +17,7 @@ const nonShrinkingStackItemStyles: IStackItemStyles = {
   },
 };
 
-export const App: React.FunctionComponent = () => {
+export const Important: React.FunctionComponent = () => {
   return (
     <Stack
       horizontal
@@ -26,10 +26,10 @@ export const App: React.FunctionComponent = () => {
         <NavFabricDemoAppExample />
       </Stack.Item>
       <Stack grow styles={stackItemStyles}>
-        <ListTask />       
+        <ListImportant />      
       </Stack>
     </Stack>
   );
 };
 
-export default App
+export default Important

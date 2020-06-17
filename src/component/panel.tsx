@@ -10,20 +10,24 @@ import { Panel,
   IIconProps  } from 'office-ui-fabric-react';
 import { DatePickerWeekNumbersExample } from './calendar';
 import { ButtonDefaultExample } from './button';
+import moment from 'moment'
 
 type PanelProps = {
   detail?: any,
   open: boolean,
   close: any,
   titleChange: any,
-  dueDateChange: any,
   deleteHandler: any,
   completeChange: any,
   dateChange: any,
+  mydayHandler: any,
+  importantHandler: any,
 }
 
 
-export const PanelFabrick: React.FunctionComponent<PanelProps> = ({detail, dateChange, open, close, titleChange, dueDateChange, deleteHandler, completeChange}) => {
+export const PanelFabrick: React.FunctionComponent<PanelProps> = ({detail, mydayHandler, dateChange, open, close, titleChange, deleteHandler, importantHandler, completeChange}) => {
+  const moment1 = moment(detail.myday);
+  const myday =  moment1.isSame(moment(), 'date')
   const stackItem: IStackItemStyles = {
     root: {
       alignItems: 'center'
@@ -43,6 +47,7 @@ export const PanelFabrick: React.FunctionComponent<PanelProps> = ({detail, dateC
   };
     
   const star: IIconProps = { iconName: 'FavoriteStar' };
+  const starFill: IIconProps = { iconName: 'FavoriteStarFill' };
   return (
     <Panel
         isLightDismiss
@@ -59,7 +64,14 @@ export const PanelFabrick: React.FunctionComponent<PanelProps> = ({detail, dateC
             <TextField onBlur={titleChange(detail)} styles={detail.complete ? inputStyleComplete : {}} borderless defaultValue={detail.title}/>
           </Stack.Item>
           <Stack.Item>
-            <ActionButton iconProps={star} />
+            {detail.important ? (
+              <ActionButton iconProps={starFill} onClick={importantHandler(detail)} />)
+              : null
+            }
+            {!detail.important ? (
+              <ActionButton iconProps={star} onClick={importantHandler(detail)} />)
+              : null
+            }
           </Stack.Item>
         </Stack>
         <DatePickerWeekNumbersExample
@@ -67,7 +79,12 @@ export const PanelFabrick: React.FunctionComponent<PanelProps> = ({detail, dateC
           defaultValue={detail.duedate}
           selectDate={dateChange(detail)}
         />
-        <ButtonDefaultExample text="Add To My Day" icon="Sunny" onClick={()=> null} />
+        {myday ? (
+          <ButtonDefaultExample text="Remove from My Day" icon="Delete" onClick={mydayHandler(detail, false)} />) : null
+        }
+        {!myday ? (
+          <ButtonDefaultExample text="Add To My Day" icon="Sunny" onClick={mydayHandler(detail, true)} />) : null
+        }
         <ButtonDefaultExample onClick={deleteHandler(detail)} text="Delete Task" icon="Delete" type="danger" />
       </Panel>
   );
